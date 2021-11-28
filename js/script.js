@@ -10,7 +10,7 @@ let divShoppingList;
 let allData;
 let animals;
 let selectedCategory;
-
+let selectedProduct;
 
 function initialize(){
 
@@ -121,7 +121,7 @@ function detailsChange(){
     }
     if(slcCategoryDetails.selectedIndex !== -1){
         const selectedProdValue = slcCategoryDetails[slcCategoryDetails.selectedIndex].value;
-        const selectedProduct = selectedCategory.find(product=>product.name === selectedProdValue);
+        selectedProduct = selectedCategory.find(product=>product.name === selectedProdValue);
 
         const divProd = document.createElement("div");
         const hdrProd = document.createElement("h2");
@@ -181,5 +181,12 @@ function detailsChange(){
         btnAdd.textContent = "Add to basket";
         divProd.appendChild(btnAdd); 
         divProductInfo.appendChild(divProd);
+        btnAdd.addEventListener("click",btnClick);
+    }
+
+    function btnClick(){
+        const parAddedProduct = document.createElement("p");
+        parAddedProduct.textContent = selectedProduct.name;
+        divShoppingList.appendChild(parAddedProduct);
     }
 }
