@@ -170,13 +170,16 @@ function detailsChange(){
             trowTwo.appendChild(tdata6);
  
             table.appendChild(trowTwo);
-            
+
             divProd.appendChild(hdrProd);
             divProd.appendChild(parInfo);
             divProd.appendChild(imgProd);
             divProd.appendChild(table);
         }
 
+        const btnAdd = document.createElement("button");
+        btnAdd.textContent = "Add to basket";
+        divProd.appendChild(btnAdd); 
         divProductInfo.appendChild(divProd);
     }
 }
