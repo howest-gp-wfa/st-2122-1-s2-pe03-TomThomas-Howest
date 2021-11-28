@@ -125,16 +125,58 @@ function detailsChange(){
 
         const divProd = document.createElement("div");
         const hdrProd = document.createElement("h2");
+        const parInfo = document.createElement("p");
+
         const imgProd = document.createElement("img");
+        
+        hdrProd.textContent = selectedProduct.name;
+        
         if(selectedCategory[0].name==="Freshwater Flakes"){
             imgProd.src = selectedProduct.image;
+            parInfo.textContent = selectedProduct.description;
+
+            divProd.appendChild(hdrProd);
+            divProd.appendChild(parInfo);
+            divProd.appendChild(imgProd);
         }
         else{
             imgProd.src = selectedProduct.info.image;
+            parInfo.textContent = selectedProduct.info.description;
+            const table = document.createElement("table");
+            const trowOne = document.createElement("thead");
+            trowOne.innerHTML = "<td>Min. Size</td> <td>Max. Size</td> <td>Max. Age</td> <td>Food</td> <td>Behaviour</td> <td>Community Fish?</td>"
+            table.appendChild(trowOne);
+            
+            const trowTwo = document.createElement("tr");
+            const tdata1 = document.createElement("td");
+            const tdata2 = document.createElement("td");
+            const tdata3 = document.createElement("td");
+            const tdata4 = document.createElement("td");
+            const tdata5 = document.createElement("td");
+            const tdata6 = document.createElement("td");
+
+            tdata1.textContent = selectedProduct.info.minSize;
+            tdata2.textContent = selectedProduct.info.maxSize;
+            tdata3.textContent = selectedProduct.info.maxAge;
+            tdata4.textContent = selectedProduct.info.Food;
+            tdata5.textContent = selectedProduct.info.behaviour;
+            tdata6.textContent = selectedProduct.info.communityFish;
+
+            trowTwo.appendChild(tdata1);
+            trowTwo.appendChild(tdata2);
+            trowTwo.appendChild(tdata3);
+            trowTwo.appendChild(tdata4);
+            trowTwo.appendChild(tdata5);
+            trowTwo.appendChild(tdata6);
+ 
+            table.appendChild(trowTwo);
+            
+            divProd.appendChild(hdrProd);
+            divProd.appendChild(parInfo);
+            divProd.appendChild(imgProd);
+            divProd.appendChild(table);
         }
-        hdrProd.textContent = selectedProduct.name;
-        divProd.appendChild(hdrProd);
-        divProd.appendChild(imgProd);
+
         divProductInfo.appendChild(divProd);
     }
 }
