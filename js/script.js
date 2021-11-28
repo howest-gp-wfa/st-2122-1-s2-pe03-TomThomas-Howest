@@ -126,7 +126,12 @@ function detailsChange(){
         const divProd = document.createElement("div");
         const hdrProd = document.createElement("h2");
         const imgProd = document.createElement("img");
-        imgProd.src = selectedProduct.info.image;
+        if(selectedCategory[0].name==="Freshwater Flakes"){
+            imgProd.src = selectedProduct.image;
+        }
+        else{
+            imgProd.src = selectedProduct.info.image;
+        }
         hdrProd.textContent = selectedProduct.name;
         divProd.appendChild(hdrProd);
         divProd.appendChild(imgProd);
