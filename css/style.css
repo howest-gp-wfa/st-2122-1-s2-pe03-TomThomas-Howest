@@ -49,3 +49,9 @@ button{
     margin-right: auto;
     margin-top: 15px;
 }
+
+#shopping-list{
+    background-color: darkblue;
+    color: white;
+    padding: 5px;
+}
